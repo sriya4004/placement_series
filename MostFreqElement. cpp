@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    int mostFreqEle(vector<int>& arr) {
+        // code here
+        unordered_map<int,int> freq;
+        int ans = arr[0]; int maxFreq = 1;
+        for(int x : arr){
+            freq[x]++;
+            //Another element has the same highest frequency.
+            //Choose the larger element among them.
+            if(freq[x]>maxFreq || (freq[x] == maxFreq && x > ans)){
+                maxFreq = freq[x];
+                ans = x;
+            }
+        }
+        return ans;
+    }
+};
